@@ -9,7 +9,7 @@ class Boards extends Component {
     super(props)
     console.log('props: ', props)
     this.state = {
-      editingBoard: null,
+      editingBoard: null
     }
   }
 

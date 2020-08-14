@@ -1,22 +1,20 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Card } from 'primereact/card';
 import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
 import  { Button } from 'primereact/button';
 
-import { login } from '../Redux/actions/auth'
+import useAuth from '../Providers/auth/hook'
+
+//import { login } from '../Redux/actions/auth'
 import './Auth.css'
 import logo from '../Assets/logo.png'
 
-class AuthPage extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      username: '',
-      password: ''
-    }
-  }
+const AuthPage = () => {
+  const { userStatus, userId, token, login } = useAuth()
+  const [username, setUserName] = useState('')
+  const [password, setPassword] = useState('')
 
   submitHandler = async event => {
     event.preventDefault()
