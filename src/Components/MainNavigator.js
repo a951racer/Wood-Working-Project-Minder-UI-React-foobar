@@ -45,13 +45,11 @@ class MainNavigator extends Component {
   }
 
   handleClick = (match, page) => {
-    console.log('handling click: ', match, page)
     if (match) this.setState({redirect: true, redirectTo: page})
   }
 
   render() {
     if (this.state.redirect) {
-      console.log("redirecting: ", this.state.redirectTo)
       return <Redirect push to={this.state.redirectTo} />;
     }
     return (
