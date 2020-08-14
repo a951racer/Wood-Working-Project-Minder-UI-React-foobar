@@ -16,6 +16,16 @@ export default class ProjectAPI {
     return res.data
   }
 
+  async getProjectDetails(id, token) {
+    const options = {
+      headers: {
+        'Authorization': 'Bearer ' + token
+      }
+    }
+    const res = await axios.get(apiRoot + `/${id}`, options)
+    return res.data
+  }
+
   async saveProject(project, token) {
     const options = {
       headers: {

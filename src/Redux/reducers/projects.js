@@ -1,6 +1,8 @@
 import { REQUEST_PROJECTS,
+  REQUEST_PROJECT,
   UPDATE_PROJECT,
   PROJECTS_RECEIVED,
+  PROJECT_RECEIVED,
   PROJECT_UPDATED,
   CREATE_PROJECT,
   PROJECT_CREATED,
@@ -10,10 +12,13 @@ import { REQUEST_PROJECTS,
 
 const initialState = {
   projects: [],
+  currentProject: {},
   isLoading: false,
   isUpdating: false,
   isCreating: false,
-  isDeleting: false
+  isDeleting: false,
+  currentProjectIsLoading: false,
+  currentProjectIsLoaded: false
 };
 
 const projects = (state = initialState, action) => {
@@ -32,6 +37,21 @@ const projects = (state = initialState, action) => {
       }
     }
 
+    case REQUEST_PROJECT: {
+      return {
+        ...state,
+        currentProjectIsLoading: true }
+    }
+
+    case PROJECT_RECEIVED: {
+      return {
+        ...state,
+        isLoading: false,
+        currentProjectIsLoaded: true,
+        currentProject: action.project
+      }
+    }
+
     case UPDATE_PROJECT: {
       return {
         ...state,
@@ -47,7 +67,8 @@ const projects = (state = initialState, action) => {
       return {
         ...state,
         isUpdating: false,
-        projects: updatedProjects
+        projects: updatedProjects,
+        currentProject: action.project
       }
     }
 
@@ -82,7 +103,8 @@ const projects = (state = initialState, action) => {
       return {
         ...state,
         projects: updatedProjects,
-        isDeleting: false
+        isDeleting: false,
+        currentProject: {}
       }
     }
 
