@@ -75,6 +75,7 @@ Light Brown: #8b5529
 Dark Brown: #3e2312
 Faint cream: #d4b99627
 Medium cream: #d4b996b4
+Background: #fcf4ec
 
 Old colors:
 blue: #005b9f
