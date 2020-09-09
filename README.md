@@ -70,11 +70,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 Colors:
 
-Cream: #d9a460
+Orange: #d9a460
+Cream: #f4e4d4
 Light Brown: #8b5529
 Dark Brown: #3e2312
-Faint cream: #d4b99627
-Medium cream: #d4b996b4
+Faint cream/ background: #fcf4ec
+Medium cream: #dfc8ac
 Background: #fcf4ec
 
 Old colors:
